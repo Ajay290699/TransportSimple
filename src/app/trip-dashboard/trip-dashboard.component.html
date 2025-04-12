@@ -1,0 +1,31 @@
+<div class="level-container">
+    <div class="timeline">
+        level 1
+        <ng-container *ngFor="let trip of level1Trips; let i = index">
+            <div class="trip-block">
+                <div class="line" [ngClass]="{ 'arrow': isArrow(trip, level1Trips[i - 1]) }"></div>
+                <div class="label">
+                    <span [title]="trip.start">{{ getShort(trip.start) }}</span>
+                    &nbsp;→&nbsp;
+                    <span [title]="trip.end">{{ getShort(trip.end) }}</span>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+</div>
+
+<div class="level-container">
+    <div class="timeline level2">
+        level 2
+        <ng-container *ngFor="let trip of level2Trips">
+            <div class="trip-block">
+                <div class="line duplicate"></div>
+                <div class="label">
+                    <span [title]="trip.start">{{ getShort(trip.start) }}</span>
+                    &nbsp;→&nbsp;
+                    <span [title]="trip.end">{{ getShort(trip.end) }}</span>
+                </div>
+            </div>
+        </ng-container>
+    </div>
+</div>
